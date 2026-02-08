@@ -632,7 +632,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
               <motion.div
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: 0.12 }}
-                className="gradient-border glass hoverable outcomes-card relative w-full max-w-xl overflow-hidden rounded-2xl border border-[var(--border)] p-6 pb-5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
+                className="gradient-border glass card-shell hoverable outcomes-card relative w-full max-w-xl overflow-hidden rounded-2xl border border-[var(--border)] p-6 pb-5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
               >
                 <div className="mb-4 flex items-center justify-between">
                   <span className="pill bg-white/10 text-white border border-white/15">{copy.hero.outcomesBadge}</span>
@@ -678,7 +678,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                     key={item.label}
                     {...fadeIn}
                     transition={item.transition}
-                    className="glass hoverable flex flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/80 p-5"
+                    className="glass card-shell hoverable flex flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/80 p-5"
                   >
                     <div className="text-3xl font-semibold text-white sm:text-4xl">{item.value}</div>
                     <p className="text-sm text-[var(--muted)]">{item.label}</p>
@@ -728,7 +728,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                       key={service.title}
                       {...fadeIn}
                       transition={{ ...fadeIn.transition, delay: 0.05 * idx }}
-                      className="glass hoverable group flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-5"
+                    className="glass card-shell hoverable group flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-5"
                     >
                       <div className="flex items-center gap-3">
                         <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/5 text-[var(--accent-2)] shadow-inner shadow-[rgba(255,255,255,0.08)]">
@@ -768,7 +768,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                       key={step.title}
                       {...fadeIn}
                       transition={{ ...fadeIn.transition, delay: 0.05 * idx }}
-                      className="glass hoverable relative flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/90 p-5"
+                      className="glass card-shell hoverable relative flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface-2)]/90 p-5"
                     >
                       <div className="flex items-center gap-3">
                         <span className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border)] bg-white/5 text-sm font-semibold text-white">
@@ -806,7 +806,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                     key={item.title}
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.08 * idx }}
-                    className="glass hoverable flex h-full flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-6"
+                    className="glass card-shell hoverable flex h-full flex-col gap-4 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-6"
                   >
                     <div className="pill w-fit bg-gradient-to-r from-[var(--accent-1)]/25 via-[var(--accent-2)]/25 to-[var(--accent-3)]/25 text-sm font-semibold text-white">
                       {item.metric}
@@ -842,7 +842,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                   {copy.stackGroups.map((stack) => (
                     <div
                       key={stack.group}
-                      className="glass hoverable flex flex-col gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-4"
+                      className="glass card-shell hoverable flex flex-col gap-2 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/80 p-4"
                     >
                       <div className="text-sm uppercase tracking-wide text-[var(--muted)]">{stack.group}</div>
                       <div className="text-base font-semibold text-white">{stack.items}</div>
@@ -854,17 +854,21 @@ export default function PageClient({ locale }: { locale: Locale }) {
               <motion.div
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: 0.1 }}
-                className="gradient-border glass hoverable outcomes-card relative w-full max-w-xl overflow-hidden rounded-2xl border border-[var(--border)] p-6 pb-5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
+                className="gradient-border glass card-shell hoverable outcomes-card relative w-full max-w-xl overflow-hidden rounded-2xl border border-[var(--border)] p-6 pb-5 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
               >
-                <div className="mb-4 flex items-center gap-3 text-sm text-[var(--muted)]">
-                  <ShieldCheck size={18} className="text-[var(--accent-1)]" aria-hidden />
-                  Reliable delivery patterns
+                <div className="mb-4 grid grid-cols-[48px_1fr] items-center gap-3">
+                  <span className="icon-circle text-[var(--accent-1)] justify-self-center">
+                    <ShieldCheck size={18} strokeWidth={1.75} aria-hidden />
+                  </span>
+                  <span className="text-lg font-semibold text-white leading-tight">Reliable delivery patterns</span>
                 </div>
                 <ul className="flex flex-col gap-3 text-sm leading-relaxed text-white/90">
                   {copy.stackSidebar.map((line) => (
-                    <li key={line} className="flex items-start gap-2">
-                      <CheckCircle2 size={18} className="mt-0.5 text-[var(--accent-2)]" aria-hidden />
-                      {line}
+                    <li key={line} className="grid grid-cols-[48px_1fr] items-start gap-3">
+                      <span className="justify-self-center text-[var(--accent-2)]">
+                        <CheckCircle2 size={20} strokeWidth={1.75} aria-hidden />
+                      </span>
+                      <span className="text-base leading-relaxed text-white/90">{line}</span>
                     </li>
                   ))}
                 </ul>
@@ -890,7 +894,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                     key={`${quote.slice(0, 16)}-${idx}`}
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.05 * idx }}
-                    className="glass hoverable flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/85 p-5"
+                    className="glass card-shell hoverable flex h-full flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)]/85 p-5"
                   >
                     <div className="flex items-center gap-2 text-[var(--muted)]">
                       <Sparkles size={16} aria-hidden />
@@ -924,7 +928,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                     key={plan.title}
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.07 * idx }}
-                    className={`glass hoverable flex h-full flex-col gap-4 rounded-2xl border bg-[var(--surface)]/85 p-6 ${
+                    className={`glass card-shell hoverable flex h-full flex-col gap-4 rounded-2xl border bg-[var(--surface)]/85 p-6 ${
                       plan.badge ? "border-[var(--accent-2)]/50 shadow-[0_20px_60px_rgba(34,211,238,0.25)]" : "border-[var(--border)]"
                     }`}
                   >
@@ -975,7 +979,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
                     key={faq.question}
                     {...fadeIn}
                     transition={{ ...fadeIn.transition, delay: 0.05 * idx }}
-                    className="group glass hoverable rounded-2xl border border-[var(--border)] bg-[var(--surface)]/85"
+                    className="group glass card-shell hoverable rounded-2xl border border-[var(--border)] bg-[var(--surface)]/85"
                     open={idx === 0}
                   >
                     <summary className="flex w-full cursor-pointer items-center justify-between gap-3 px-4 py-4 text-left list-none">
@@ -999,9 +1003,8 @@ export default function PageClient({ locale }: { locale: Locale }) {
             <div className={`${container} grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center`}>
               <motion.div
                 {...fadeIn}
-                className="gradient-border glass hoverable relative overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface-2)]/90 p-8"
+                className="gradient-border glass card-shell hoverable outcomes-card relative overflow-hidden rounded-3xl border border-[var(--border)] p-8"
               >
-                <div className="absolute inset-0 opacity-60 [background:radial-gradient(circle_at_20%_30%,rgba(109,91,255,0.25),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(34,211,238,0.25),transparent_40%)]" />
                 <div className="relative z-10 flex flex-col gap-4">
                   <h2 id="cta-title" className="font-display text-3xl sm:text-4xl">
                     {copy.finalCtaTitle}
@@ -1034,7 +1037,7 @@ export default function PageClient({ locale }: { locale: Locale }) {
               <motion.div
                 {...fadeIn}
                 transition={{ ...fadeIn.transition, delay: 0.12 }}
-                className="glass hoverable rounded-3xl border border-[var(--border)] bg-[var(--background-2)]/85 p-6"
+                className="glass card-shell hoverable rounded-3xl border border-[var(--border)] bg-[var(--background-2)]/85 p-6"
                 id="contact"
               >
                 <div className="flex items-center gap-3">

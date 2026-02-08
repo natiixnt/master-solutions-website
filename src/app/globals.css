@@ -82,9 +82,6 @@ section {
   backdrop-filter: blur(18px);
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
   overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
-  transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .glass::after {
@@ -116,23 +113,61 @@ section {
     filter 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.glass:hover {
-  transform: translateY(-2px);
-}
-
-.glass:hover::before {
-  opacity: 0.55;
-  transform: scale(1);
-  filter: blur(18px);
-}
-
-.glass:hover::after {
-  opacity: 0.95;
-}
-
 .glass > * {
   position: relative;
   z-index: 1;
+}
+
+.card-shell {
+  transform: translateZ(0);
+  will-change: transform;
+  transition: transform 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-shell::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(109, 91, 255, 0.25), transparent 35%),
+    radial-gradient(circle at 80% 40%, rgba(34, 211, 238, 0.22), transparent 30%);
+  opacity: 0;
+  filter: blur(20px);
+  pointer-events: none;
+  transform: scale(0.985);
+  transition:
+    opacity 260ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-shell::after {
+  transition: opacity 240ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-shell:hover {
+  transform: translate3d(0, -2px, 0);
+}
+
+.card-shell:hover::before {
+  opacity: 0.55;
+  transform: scale(1);
+}
+
+.card-shell:hover::after {
+  opacity: 0.98;
+}
+
+.icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+  flex-shrink: 0;
 }
 
 .gradient-border {
@@ -252,7 +287,16 @@ section {
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
-    transition: none !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .card-shell,
+  .card-shell::before,
+  .card-shell::after {
+    transition-duration: 120ms !important;
   }
 }
 
