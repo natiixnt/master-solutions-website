@@ -72,7 +72,7 @@ const services = [
 const processSteps = [
   {
     title: "Audit & scope",
-    text: "I map your workflows, data, and constraints. You get a clear plan.",
+    text: "We map your workflows, data, and constraints. You get a clear plan.",
   },
   {
     title: "Build & iterate",
@@ -146,11 +146,11 @@ const faqs = [
   {
     question: "Do you work with existing systems?",
     answer:
-      "Yes. I usually start with an audit, then improve what exists or replace only what is necessary.",
+      "Yes. We usually start with an audit, then improve what exists or replace only what is necessary.",
   },
   {
     question: "How fast can we start?",
-    answer: "If scope is clear, I can start within days. First working version typically lands in 8-14 days.",
+    answer: "If scope is clear, we can start within days. First working version typically lands in 8-14 days.",
   },
   {
     question: "Do you provide support after launch?",
@@ -381,7 +381,7 @@ export default function Home() {
                   We build software and automations that remove manual work.
                 </h1>
                 <p className="max-w-2xl text-lg leading-relaxed text-[var(--muted)]">
-                  From CRM implementations to custom integrations and internal tools. I ship production-ready systems that save time, reduce errors, and scale with your business.
+                  From CRM implementations to custom integrations and internal tools. We ship production-ready systems that save time, reduce errors, and scale with your business.
                 </p>
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
@@ -412,24 +412,25 @@ export default function Home() {
                 transition={{ ...fadeIn.transition, delay: 0.12 }}
                 className="gradient-border glass hoverable relative overflow-hidden p-6 shadow-[0_20px_80px_rgba(0,0,0,0.5)]"
               >
-                <div className="absolute right-4 top-4 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-[var(--muted)]">
-                  Typical outcomes
-                </div>
-                <div className="relative z-10 flex flex-col gap-4">
-                  <div className="flex items-center gap-3 text-sm text-[var(--muted)]">
-                    <Sparkles size={18} className="text-[var(--accent-2)]" aria-label="Sparkles icon" />
+                <div className="mb-4 flex items-center justify-between">
+                  <span className="badge border-white/10 bg-white/5 text-[var(--muted)]">Typical outcomes</span>
+                  <span className="flex items-center gap-2 text-sm text-[var(--muted)]">
+                    <Sparkles size={18} className="text-[var(--accent-2)]" aria-hidden />
                     Engineering-first delivery
-                  </div>
-                  <div className="flex flex-col gap-3">
-                    {outcomeBullets.map((line) => (
-                      <div key={line} className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/5 px-3 py-3 text-sm leading-relaxed text-white/90">
-                        <CheckCircle2 size={18} className="mt-0.5 text-[var(--accent-2)]" aria-hidden />
-                        {line}
-                      </div>
-                    ))}
-                  </div>
+                  </span>
                 </div>
-                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--accent-1)]/15 via-transparent to-transparent blur-3xl" />
+                <div className="flex flex-col gap-3">
+                  {outcomeBullets.map((line) => (
+                    <div
+                      key={line}
+                      className="flex items-start gap-3 rounded-xl border border-white/5 bg-white/5 px-3 py-3 text-sm leading-relaxed text-white/90"
+                    >
+                      <CheckCircle2 size={18} className="mt-0.5 text-[var(--accent-2)]" aria-hidden />
+                      {line}
+                    </div>
+                  ))}
+                </div>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[var(--accent-1)]/15 via-transparent to-transparent blur-3xl" />
               </motion.div>
             </div>
           </section>
@@ -447,7 +448,7 @@ export default function Home() {
                     Built to deliver, not to impress.
                   </h2>
                   <p className="mt-2 max-w-2xl text-base text-[var(--muted)]">
-                    I focus on outcomes: speed, reliability, maintainability.
+                    We focus on outcomes: speed, reliability, maintainability.
                   </p>
                 </div>
               </div>
@@ -624,7 +625,7 @@ export default function Home() {
                   Tools I ship with
                 </h2>
                 <p className="max-w-2xl text-base text-[var(--muted)]">
-                  I pick the stack that balances speed, reliability, and maintainability for your team.
+                  We pick the stack that balances speed, reliability, and maintainability for your team.
                 </p>
                 <div className="grid gap-3 sm:grid-cols-2">
                   {techStack.map((stack) => (
@@ -733,7 +734,7 @@ export default function Home() {
                     </div>
                     <div className="text-2xl font-semibold text-white">{plan.price}</div>
                     <ul className="flex flex-col gap-2 text-sm text-[var(--muted)]">
-                      {plan.bullets.map((bullet) => (
+                  {plan.bullets.map((bullet) => (
                         <li key={bullet} className="flex items-start gap-2">
                           <CheckCircle2 size={16} className="mt-0.5 text-[var(--accent-2)]" aria-hidden />
                           {bullet}
@@ -802,7 +803,7 @@ export default function Home() {
                     Let&apos;s remove manual work from your business.
                   </h2>
                   <p className="max-w-2xl text-base text-[var(--muted)]">
-                    Tell me what you do today. I will map the fastest path to automation and measurable savings.
+                    Tell us what you do today. We will map the fastest path to automation and measurable savings.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <Link
@@ -877,7 +878,7 @@ export default function Home() {
                   </button>
                   {submitted && (
                     <div className="rounded-xl border border-[var(--success)]/30 bg-[var(--success)]/10 px-3 py-2 text-sm text-[var(--success)]" role="status" aria-live="polite">
-                      Got it. I will reply within 24h.
+                      Got it. We will reply within 24h.
                     </div>
                   )}
                 </form>
